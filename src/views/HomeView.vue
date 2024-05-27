@@ -1,18 +1,67 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <h1>Eventos proximos</h1>
+  <div class="events">
+    <EventCard v-for="event in events" :key="event.id" :event="event"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import EventCard from "../components/EventCard.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    EventCard,
   },
+  data() {
+    return {
+      events: [
+      {
+        id: 12345,
+        category: 'animal',
+        title: 'Adopcion de gatos',
+        descripion: 'Adopta un gato en este evento',
+        location: 'Ciudad gato',
+        date: '27 de mayo, 2024',
+        time: '12:00',
+        petsAllowed: true,
+        organizer: 'Gatos Piolas'
+      }, 
+      {
+        id: 78910,
+        category: 'comida',        
+        title: 'Pruebas de comida',
+        descripion: 'Comida muy buena en este evento',
+        location: 'Ciudad comida',
+        date: '29 de mayo, 2024',
+        time: '15:00',
+        petsAllowed: true,
+        organizer: 'Comidas Piolas'
+      }, 
+      {
+        id: 54321,
+        category: 'sustentabilidad',
+        title: 'Limpieza de la plaza',
+        descripion: 'Cuida el medio ambiente aqui',
+        location: 'Ciudad reciclaje',
+        date: '30 de mayo, 2024',
+        time: '17:00',
+        petsAllowed: true,
+        organizer: 'Recicladores Piolas'
+      }
+      ]
+      
+      
+    }
+  }
 };
 </script>
+
+<style scoped>
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
